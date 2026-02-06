@@ -1,0 +1,85 @@
+{
+    "common": {
+        "loading": "Loading...",
+        "language": "Language"
+    },
+    "nav": {
+        "home": "Home",
+        "services": "Services",
+        "locations": "Locations",
+        "about": "About Us",
+        "gallery": "Celebrities",
+        "contact": "Contact",
+        "prices": "Price List",
+        "menu_title": "MENU",
+        "call_center": "CALL CENTER",
+        "whatsapp": "WHATSAPP BOOKING",
+        "follow_us": "FOLLOW US",
+        "social": "SOCIAL MEDIA",
+        "online": "Online",
+        "follow_hint": "Follow us"
+    },
+    "hero": {
+        "title": "BARBERCUTS",
+        "subtitle": "Excellence in Grooming",
+        "cta": "Book Appointment",
+        "cta_locations": "LOCATIONS & PRICES",
+        "cta_gallery": "GALLERY",
+        "dynamic_services": [
+            "Hair Care",
+            "Beard Styling",
+            "Skin Care",
+            "VIP Service"
+        ]
+    },
+    "gallery": {
+        "title": "CELEBRITIES & PHENOMENONS",
+        "subtitle": "They Chose Us",
+        "view_all": "ALL PHOTOS"
+    },
+    "services": {
+        "title": "Our Services",
+        "haircut": {
+            "title": "Signature Cut",
+            "desc": "Precision haircut tailored to your style."
+        },
+        "shave": {
+            "title": "Royal Shave",
+            "desc": "Hot towel shave with premium oils."
+        },
+        "styling": {
+            "title": "Beard Styling",
+            "desc": "Sculpting and conditioning for the perfect beard."
+        }
+    },
+    "about": {
+        "title": "The Legacy",
+        "desc": "Established in 2024, Barber Cuts brings back the tradition of the classic barbershop with a modern twist."
+    },
+    "cta": {
+        "title": "Follow Us",
+        "subtitle": "@barbercuts_antalya",
+        "button": "View on Instagram"
+    },
+    "testimonials": {
+        "title": "Client Stories",
+        "subtitle": "Our guests' experiences are our greatest reference. Our real reviews on Google."
+    },
+    "locations": {
+        "title": "OUR LOCATIONS",
+        "subtitle": "Visit Us",
+        "branch_name": "Barbercuts Antalya",
+        "address_label": "Address",
+        "address_value": "Siteler, Uncalı Cd. Erenköy Sitesi No:11 B Dükkan, 07100 Konyaaltı/Antalya",
+        "phone_label": "Phone",
+        "hours_label": "Working Hours",
+        "hours_value": "Every day: 09:00 - 22:00",
+        "get_directions": "Get Directions"
+    },
+    "footer": {
+        "rights": "All rights reserved.",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "made_by": "Designed by"
+    }
+}

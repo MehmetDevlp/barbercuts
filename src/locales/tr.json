@@ -1,0 +1,89 @@
+{
+    "common": {
+        "loading": "Yükleniyor...",
+        "language": "Dil"
+    },
+    "nav": {
+        "home": "Ana Sayfa",
+        "services": "Hizmetler",
+        "locations": "Şubeler",
+        "about": "Hakkımızda",
+        "gallery": "Ünlüler & Fenomenler",
+        "contact": "İletişim",
+        "prices": "Fiyat Listesi",
+        "menu_title": "MENÜ",
+        "call_center": "ÇAĞRI MERKEZİ",
+        "whatsapp": "WHATSAPP RANDEVU",
+        "follow_us": "TAKİPTE KAL",
+        "social": "SOSYAL MEDYA",
+        "follow_hint": "Bizi takip edin",
+        "online": "Çevrimiçi"
+    },
+    "gallery": {
+        "title": "ÜNLÜLER & FENOMENLER",
+        "subtitle": "Onlar Bizi Tercih Etti",
+        "view_all": "TÜM FOTOĞRAFLAR"
+    },
+    "hero": {
+        "title": "BARBERCUTS",
+        "subtitle": "Erkek Bakımında Mükemmellik",
+        "cta": "RANDEVU AL",
+        "cta_locations": "ŞUBELER VE FİYATLAR",
+        "cta_gallery": "GALERİ",
+        "dynamic_services": [
+            "Saç Bakımı",
+            "Sakal Bakımı",
+            "Saç Tasarımı",
+            "Sakal Tasarımı",
+            "Kaş Tasarımı",
+            "Cilt Bakımı",
+            "Ağda",
+            "Maske"
+        ]
+    },
+    "services": {
+        "title": "Hizmetlerimiz",
+        "haircut": {
+            "title": "İmza Kesim",
+            "desc": "Tarzınıza özel hassas saç kesimi."
+        },
+        "shave": {
+            "title": "Kraliyet Tıraşı",
+            "desc": "Premium yağlarla sıcak havlu tıraşı."
+        },
+        "styling": {
+            "title": "Sakal Tasarımı",
+            "desc": "Mükemmel sakal için şekillendirme ve bakım."
+        }
+    },
+    "about": {
+        "title": "Mirasımız",
+        "desc": "2024'te kurulan Barber Cuts, klasik berber geleneğini modern bir dokunuşla geri getiriyor."
+    },
+    "cta": {
+        "title": "Bizi Takip Edin",
+        "subtitle": "@barbercuts_antalya",
+        "button": "Instagram'da Görüntüle"
+    },
+    "testimonials": {
+        "title": "Müşteri Yorumları",
+        "subtitle": "Misafirlerimizin deneyimleri bizim için en büyük referanstır. Google üzerindeki gerçek yorumlarımız."
+    },
+    "locations": {
+        "title": "ŞUBELERİMİZ",
+        "subtitle": "Bize Ulaşın",
+        "branch_name": "Barbercuts Antalya",
+        "address_label": "Adres",
+        "address_value": "Siteler, Uncalı Cd. Erenköy Sitesi No:11 B Dükkan, 07100 Konyaaltı/Antalya",
+        "phone_label": "Telefon",
+        "hours_label": "Çalışma Saatleri",
+        "hours_value": "Haftanın her günü: 09:00 - 22:00",
+        "get_directions": "Yol Tarifi Al"
+    },
+    "footer": {
+        "rights": "Tüm hakları saklıdır.",
+        "privacy": "Gizlilik Politikası",
+        "terms": "Kullanım Şartları",
+        "made_by": "Tasarım:"
+    }
+}
