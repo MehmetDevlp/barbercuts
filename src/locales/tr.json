@@ -5,14 +5,13 @@
     },
     "nav": {
         "home": "Ana Sayfa",
-        "services": "Hizmetler",
-        "locations": "Şubeler",
+        "services": "Hizmetler & Fiyat Listesi",
+        "locations": "İletişim",
         "about": "Hakkımızda",
-        "gallery": "Ünlüler & Fenomenler",
-        "contact": "İletişim",
-        "prices": "Fiyat Listesi",
+        "gallery": "Fotoğraflar",
+        "contact": "Fiyatlar",
         "menu_title": "MENÜ",
-        "call_center": "ÇAĞRI MERKEZİ",
+        "call_center": "BİZİ ARAYIN",
         "whatsapp": "WHATSAPP RANDEVU",
         "follow_us": "TAKİPTE KAL",
         "social": "SOSYAL MEDYA",
@@ -20,7 +19,7 @@
         "online": "Çevrimiçi"
     },
     "gallery": {
-        "title": "ÜNLÜLER & FENOMENLER",
+        "title": "FOTOĞRAFLAR",
         "subtitle": "Onlar Bizi Tercih Etti",
         "view_all": "TÜM FOTOĞRAFLAR"
     },
@@ -28,7 +27,7 @@
         "title": "BARBERCUTS",
         "subtitle": "Erkek Bakımında Mükemmellik",
         "cta": "RANDEVU AL",
-        "cta_locations": "ŞUBELER VE FİYATLAR",
+        "cta_locations": "FİYATLAR",
         "cta_gallery": "GALERİ",
         "dynamic_services": [
             "Saç Bakımı",
@@ -57,8 +56,21 @@
         }
     },
     "about": {
+        "story_title": "Hikayemiz",
         "title": "Mirasımız",
-        "desc": "2024'te kurulan Barber Cuts, klasik berber geleneğini modern bir dokunuşla geri getiriyor."
+        "desc": "2024'te kurulan Barber Cuts, klasik berber geleneğini modern bir dokunuşla geri getiriyor.",
+        "long_desc": "Berber dükkanının sadece saç kesilen bir yer değil, modern beyefendiler için bir sığınak olduğuna inanıyoruz. Geleneğin inovasyonla buluştuğu ve her hizmetin bir ritüele dönüştüğü yer.",
+        "read_more": "Devamını Oku",
+        "ticker_items": [
+            "GÜVENİLİRLİK",
+            "KALİTE",
+            "MEMNUNİYET",
+            "PROFESYONEL EKİP",
+            "TECRÜBE",
+            "GÜVENİLİRLİK",
+            "KALİTE",
+            "MEMNUNİYET"
+        ]
     },
     "cta": {
         "title": "Bizi Takip Edin",
@@ -70,7 +82,7 @@
         "subtitle": "Misafirlerimizin deneyimleri bizim için en büyük referanstır. Google üzerindeki gerçek yorumlarımız."
     },
     "locations": {
-        "title": "ŞUBELERİMİZ",
+        "title": "İLETİŞİM",
         "subtitle": "Bize Ulaşın",
         "branch_name": "Barbercuts Antalya",
         "address_label": "Adres",
@@ -85,5 +97,53 @@
         "privacy": "Gizlilik Politikası",
         "terms": "Kullanım Şartları",
         "made_by": "Tasarım:"
+    },
+    "price_list": {
+        "title": "FİYAT LİSTESİ",
+        "categories": [
+            {
+                "title": "SAÇ & SAKAL",
+                "services": [
+                    { "name": "Saç", "price": "650TL" },
+                    { "name": "Sakal", "price": "250TL" },
+                    { "name": "Saç + Sakal", "price": "850TL" },
+                    { "name": "Yıkama + Fön", "price": "150TL" }
+                ]
+            },
+            {
+                "title": "BAKIMLAR",
+                "services": [
+                    { "name": "Cilt Bakımı (Maske)", "price": "300TL" },
+                    { "name": "VIP Cilt Bakımı", "price": "500TL" },
+                    { "name": "Kil Maskesi", "price": "200TL" },
+                    { "name": "Siyah Nokta Temizliği", "price": "250TL" }
+                ]
+            },
+            {
+                "title": "TASARIM & RENKLENDİRME",
+                "services": [
+                    { "name": "Saç Boyama", "price": "750TL" },
+                    { "name": "Sakal Boyama", "price": "400TL" },
+                    { "name": "Perma", "price": "1500TL" },
+                    { "name": "Keratin Bakım", "price": "1000TL" }
+                ]
+            },
+            {
+                "title": "DAMAT TRAŞI",
+                "services": [
+                    { "name": "Damat Traşı (Full Paket)", "price": "3000TL" },
+                    { "name": "Damat Traşı (Standart)", "price": "2000TL" }
+                ]
+            },
+            {
+                "title": "BOSS SKILL",
+                "services": [
+                    { "name": "Özel Saç Tasarımı", "price": "1500TL" },
+                    { "name": "VIP Danışmanlık", "price": "1000TL" }
+                ]
+            }
+        ],
+        "footer_text": "Randevu için lütfen bizimle iletişime geçiniz.",
+        "book_button": "Randevu Al"
     }
 }

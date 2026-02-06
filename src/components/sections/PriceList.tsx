@@ -3,69 +3,29 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronDown, ChevronUp } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTranslation } from "@/components/layout/TranslationProvider";
+import { useParams } from "next/navigation";
 
 interface PriceListProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-interface Service {
-  name: string;
-  price: string;
-}
-
-interface Category {
-  title: string;
-  services: Service[];
-}
-
-// Fiyat Listesi Verisi - Güncellenmiş
-const priceList: Category[] = [
-  {
-    title: "SAÇ & SAKAL",
-    services: [
-      { name: "Saç", price: "650TL" },
-      { name: "Sakal", price: "250TL" },
-      { name: "Saç + Sakal", price: "850TL" },
-      { name: "Yıkama + Fön", price: "150TL" },
-    ],
-  },
-  {
-    title: "BAKIMLAR",
-    services: [
-      { name: "Cilt Bakımı (Maske)", price: "300TL" },
-      { name: "VIP Cilt Bakımı", price: "500TL" },
-      { name: "Kil Maskesi", price: "200TL" },
-      { name: "Siyah Nokta Temizliği", price: "250TL" },
-    ],
-  },
-  {
-    title: "TASARIM & RENKLENDİRME",
-    services: [
-      { name: "Saç Boyama", price: "750TL" },
-      { name: "Sakal Boyama", price: "400TL" },
-      { name: "Perma", price: "1500TL" },
-      { name: "Keratin Bakım", price: "1000TL" },
-    ],
-  },
-  {
-    title: "DAMAT TRAŞI",
-    services: [
-      { name: "Damat Traşı (Full Paket)", price: "3000TL" },
-      { name: "Damat Traşı (Standart)", price: "2000TL" },
-    ],
-  },
-  {
-    title: "BOSS SKILL",
-    services: [
-      { name: "Özel Saç Tasarımı", price: "1500TL" },
-      { name: "VIP Danışmanlık", price: "1000TL" },
-    ],
-  },
-];
-
 export function PriceList({ isOpen, onClose }: PriceListProps) {
-  const [openCategory, setOpenCategory] = useState<string | null>("SAÇ & SAKAL");
+  const t = useTranslation();
+  const { lang } = useParams();
+  // Using 'any' here temporarily to bypass strict type checking until types are fully regenerated,
+  // but at runtime 't.price_list' will be available from the updated JSONs.
+  const { title, categories, footer_text, book_button } = (t as any).price_list;
+
+  const [openCategory, setOpenCategory] = useState<string | null>(null);
+
+  // Set default open category when data loads or component mounts
+  useEffect(() => {
+    if (categories && categories.length > 0) {
+        setOpenCategory(categories[0].title);
+    }
+  }, [categories]);
 
   // ESC tuşu ile kapatma
   useEffect(() => {
@@ -76,12 +36,15 @@ export function PriceList({ isOpen, onClose }: PriceListProps) {
     return () => window.removeEventListener("keydown", handleEsc);
   }, [onClose]);
 
-  const toggleCategory = (title: string) => {
-    setOpenCategory(openCategory === title ? null : title);
+  const toggleCategory = (catTitle: string) => {
+    setOpenCategory(openCategory === catTitle ? null : catTitle);
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/905555555555", "_blank"); // Buraya kendi numaranızı yazın
+    const message = lang === "tr" 
+        ? "Merhaba, randevu almak istiyorum." 
+        : "Hello, I would like to make an appointment.";
+    window.open(`https://wa.me/905332833103?text=${encodeURIComponent(message)}`, "_blank");
   };
 
   return (
@@ -109,7 +72,7 @@ export function PriceList({ isOpen, onClose }: PriceListProps) {
           >
             {/* Header */}
             <div className="relative z-10 p-6 border-b border-white/5 flex justify-between items-center bg-[#0a0a0a]">
-                <h2 className="text-2xl font-serif text-[#D4AF37] tracking-wider">FİYAT LİSTESİ</h2>
+                <h2 className="text-2xl font-serif text-[#D4AF37] tracking-wider">{title}</h2>
                 <button
                   onClick={onClose}
                   className="p-2 text-white/50 hover:text-white transition-colors duration-200"
@@ -121,7 +84,7 @@ export function PriceList({ isOpen, onClose }: PriceListProps) {
             {/* Scrollable Content */}
             <div className="relative z-10 p-6 overflow-y-auto custom-scrollbar flex-1">
               <div className="space-y-4">
-                {priceList.map((category, idx) => (
+                {categories.map((category: any, idx: number) => (
                   <div key={idx} className="border border-white/5 rounded-md overflow-hidden bg-[#111]">
                     <button
                       onClick={() => toggleCategory(category.title)}
@@ -147,7 +110,7 @@ export function PriceList({ isOpen, onClose }: PriceListProps) {
                         >
                           <div className="p-4 pt-0 border-t border-dashed border-white/10">
                             <ul className="space-y-3 mt-4">
-                              {category.services.map((service, sIdx) => (
+                              {category.services.map((service: any, sIdx: number) => (
                                 <li 
                                   key={sIdx}
                                   className="flex items-end justify-between text-white/80 hover:text-white transition-colors duration-200"
@@ -169,13 +132,13 @@ export function PriceList({ isOpen, onClose }: PriceListProps) {
               {/* Footer Section */}
               <div className="mt-8 text-center space-y-4 pt-6 border-t border-white/5">
                 <p className="text-white text-base font-medium">
-                  Randevu için lütfen bizimle iletişime geçiniz.
+                  {footer_text}
                 </p>
                 <button
                     onClick={handleWhatsApp}
                     className="inline-flex items-center justify-center px-8 py-3 bg-[#D4AF37] hover:bg-[#b5952f] text-black font-bold uppercase tracking-wider text-sm transition-all duration-300 rounded-sm w-full md:w-auto"
                 >
-                    Randevu Al
+                    {book_button}
                 </button>
               </div>
             </div>

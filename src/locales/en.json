@@ -5,14 +5,13 @@
     },
     "nav": {
         "home": "Home",
-        "services": "Services",
-        "locations": "Locations",
+        "services": "Services & Price List",
+        "locations": "Contact",
         "about": "About Us",
-        "gallery": "Celebrities",
-        "contact": "Contact",
-        "prices": "Price List",
+        "gallery": "Photos",
+        "contact": "Prices",
         "menu_title": "MENU",
-        "call_center": "CALL CENTER",
+        "call_center": "CALL US",
         "whatsapp": "WHATSAPP BOOKING",
         "follow_us": "FOLLOW US",
         "social": "SOCIAL MEDIA",
@@ -23,7 +22,7 @@
         "title": "BARBERCUTS",
         "subtitle": "Excellence in Grooming",
         "cta": "Book Appointment",
-        "cta_locations": "LOCATIONS & PRICES",
+        "cta_locations": "PRICES",
         "cta_gallery": "GALLERY",
         "dynamic_services": [
             "Hair Care",
@@ -33,7 +32,7 @@
         ]
     },
     "gallery": {
-        "title": "CELEBRITIES & PHENOMENONS",
+        "title": "PHOTOS",
         "subtitle": "They Chose Us",
         "view_all": "ALL PHOTOS"
     },
@@ -53,8 +52,21 @@
         }
     },
     "about": {
+        "story_title": "Our Story",
         "title": "The Legacy",
-        "desc": "Established in 2024, Barber Cuts brings back the tradition of the classic barbershop with a modern twist."
+        "desc": "Established in 2024, Barber Cuts brings back the tradition of the classic barbershop with a modern twist.",
+        "long_desc": "We believe that the barbershop is more than just a place to get a haircut; it's a sanctuary for the modern gentleman. A place where tradition meets innovation, and where every service is a ritual.",
+        "read_more": "Read Full Story",
+        "ticker_items": [
+            "RELIABILITY",
+            "QUALITY",
+            "SATISFACTION",
+            "PROFESSIONAL TEAM",
+            "EXPERIENCE",
+            "RELIABILITY",
+            "QUALITY",
+            "SATISFACTION"
+        ]
     },
     "cta": {
         "title": "Follow Us",
@@ -66,7 +78,7 @@
         "subtitle": "Our guests' experiences are our greatest reference. Our real reviews on Google."
     },
     "locations": {
-        "title": "OUR LOCATIONS",
+        "title": "CONTACT",
         "subtitle": "Visit Us",
         "branch_name": "Barbercuts Antalya",
         "address_label": "Address",
@@ -81,5 +93,53 @@
         "privacy": "Privacy Policy",
         "terms": "Terms of Service",
         "made_by": "Designed by"
+    },
+    "price_list": {
+        "title": "PRICE LIST",
+        "categories": [
+            {
+                "title": "HAIR & BEARD",
+                "services": [
+                    { "name": "Haircut", "price": "650TL" },
+                    { "name": "Beard Trim", "price": "250TL" },
+                    { "name": "Hair + Beard", "price": "850TL" },
+                    { "name": "Wash + Blow Dry", "price": "150TL" }
+                ]
+            },
+            {
+                "title": "CARE",
+                "services": [
+                    { "name": "Skin Care (Mask)", "price": "300TL" },
+                    { "name": "VIP Skin Care", "price": "500TL" },
+                    { "name": "Clay Mask", "price": "200TL" },
+                    { "name": "Blackhead Removal", "price": "250TL" }
+                ]
+            },
+            {
+                "title": "DESIGN & COLORING",
+                "services": [
+                    { "name": "Hair Coloring", "price": "750TL" },
+                    { "name": "Beard Coloring", "price": "400TL" },
+                    { "name": "Perm", "price": "1500TL" },
+                    { "name": "Keratin Treatment", "price": "1000TL" }
+                ]
+            },
+            {
+                "title": "GROOM'S SHAVE",
+                "services": [
+                    { "name": "Groom's Shave (Full Package)", "price": "3000TL" },
+                    { "name": "Groom's Shave (Standard)", "price": "2000TL" }
+                ]
+            },
+            {
+                "title": "BOSS SKILL",
+                "services": [
+                    { "name": "Special Hair Design", "price": "1500TL" },
+                    { "name": "VIP Consultancy", "price": "1000TL" }
+                ]
+            }
+        ],
+        "footer_text": "Please contact us for appointments.",
+        "book_button": "Book Appointment"
     }
 }

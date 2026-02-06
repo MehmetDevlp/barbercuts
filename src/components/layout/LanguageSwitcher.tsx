@@ -11,6 +11,11 @@ export function LanguageSwitcher({ className }: { className?: string }) {
 
     const handleLanguageChange = (locale: string) => {
         if (!pathname) return;
+        
+        // Prevent redundant navigation if already on the selected locale
+        const currentLocale = pathname.split("/")[1];
+        if (currentLocale === locale) return;
+
         const segments = pathname.split("/");
         // pathname starts with / so segments[0] is empty, segments[1] is locale
         segments[1] = locale;

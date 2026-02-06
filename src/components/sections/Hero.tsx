@@ -5,11 +5,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "@/components/layout/TranslationProvider";
 import { ArrowDown } from "lucide-react";
 import { PriceList } from "@/components/sections/PriceList";
+import { useParams } from "next/navigation";
 
 export function Hero() {
     const t = useTranslation();
+    const { lang } = useParams();
     const [serviceIndex, setServiceIndex] = useState(0);
     const [isPriceListOpen, setIsPriceListOpen] = useState(false);
+
+    const handleWhatsApp = () => {
+        const message = lang === "tr" 
+            ? "Merhaba, randevu almak istiyorum." 
+            : "Hello, I would like to make an appointment.";
+        window.open(`https://wa.me/905332833103?text=${encodeURIComponent(message)}`, "_blank");
+    };
 
     // Dynamic services loop
     useEffect(() => {
@@ -93,6 +102,7 @@ export function Hero() {
                         </motion.button>
 
                         <motion.button
+                            onClick={handleWhatsApp}
                             whileHover={{ scale: 1.05, backgroundColor: "#fff", color: "#000" }}
                             whileTap={{ scale: 0.95 }}
                             className="w-full md:w-auto px-8 py-4 border border-premium-gold bg-premium-gold text-premium-dark font-bold uppercase tracking-[0.1em] transition-all duration-300 min-w-[220px]"

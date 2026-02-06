@@ -4,11 +4,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, CheckCheck, Instagram, Facebook, Youtube } from "lucide-react"; // Added icons
+import { Menu, X, Phone, CheckCheck, Instagram, Facebook, Youtube, MessageCircle } from "lucide-react"; // Added icons
 import { cn } from "@/utils/cn";
 import { useTranslation } from "@/components/layout/TranslationProvider";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { Locale } from "@/utils/i18n";
+import { PriceList } from "@/components/sections/PriceList";
 
 export function Navbar() {
     const { lang } = useParams() as { lang: Locale };
@@ -28,11 +29,19 @@ export function Navbar() {
     // Explicit branding links based on user request
     const navLinks = [
         { name: t.nav.home, href: `/${lang}` },
-        { name: t.nav.locations, href: `/${lang}#locations` }, // Branches
-        { name: t.nav.gallery, href: `/${lang}#gallery` },
+        { name: t.nav.locations, href: `/${lang}#locations` }, // Branches -> Contact
+        { name: t.nav.gallery, href: `/${lang}#gallery` }, // Celebrities -> Photos
         { name: t.nav.about, href: `/${lang}#about` },
-        { name: t.nav.contact, href: `/${lang}#contact` },
+        { name: t.nav.contact, onClick: () => setIsPriceListOpen(true), href: "#" }, // Contact -> Prices (Open Modal)
     ];
+
+    const [isPriceListOpen, setIsPriceListOpen] = useState(false);
+    const handleWhatsApp = () => {
+        const message = lang === "tr" 
+            ? "Merhaba, randevu almak istiyorum." 
+            : "Hello, I would like to make an appointment.";
+        window.open(`https://wa.me/905332833103?text=${encodeURIComponent(message)}`, "_blank");
+    };
 
     return (
         <>
@@ -133,7 +142,7 @@ export function Navbar() {
                                 {/* Extra Information Section */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     {/* Call Center */}
-                                    <div className="flex items-center gap-4 group cursor-pointer">
+                                    <div className="flex items-center gap-4 group cursor-pointer" onClick={() => window.open('tel:05332833103')}>
                                         <div className="w-12 h-12 bg-premium-gold rounded-full flex items-center justify-center flex-shrink-0">
                                             <Phone className="w-6 h-6 text-black" />
                                         </div>
@@ -142,15 +151,15 @@ export function Navbar() {
                                                 {t.nav.call_center}
                                             </p>
                                             <p className="text-xl text-white font-bold group-hover:text-premium-gold transition-colors">
-                                                0850 703 58 84
+                                                0533 283 31 03
                                             </p>
                                         </div>
                                     </div>
 
                                     {/* Whatsapp */}
-                                    <div className="flex items-center gap-4 group cursor-pointer">
-                                        <div className="w-12 h-12 bg-premium-gold rounded-full flex items-center justify-center flex-shrink-0">
-                                            <CheckCheck className="w-6 h-6 text-black" />
+                                    <div className="flex items-center gap-4 group cursor-pointer" onClick={handleWhatsApp}>
+                                        <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <MessageCircle className="w-6 h-6 text-white" />
                                         </div>
                                         <div>
                                             <p className="text-xs text-white/50 uppercase tracking-wider mb-1">
@@ -187,6 +196,8 @@ export function Navbar() {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            <PriceList isOpen={isPriceListOpen} onClose={() => setIsPriceListOpen(false)} />
         </>
     );
 }

@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { Locale } from "@/utils/i18n";
 import { useTranslation } from "@/components/layout/TranslationProvider";
 import { Instagram } from "lucide-react";
+import { PriceList } from "@/components/sections/PriceList";
 
 // TikTok icon as a custom component since it might not be in the current lucide version or we want a specific style
 const TikTokIcon = ({ className }: { className?: string }) => (
@@ -27,6 +29,7 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 export function Footer() {
     const { lang } = useParams() as { lang: Locale };
     const t = useTranslation();
+    const [isPriceListOpen, setIsPriceListOpen] = useState(false);
 
     return (
         <footer className="bg-premium-dark border-t border-white/10 pt-20 pb-10">
@@ -52,9 +55,12 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href={`/${lang}#services`} className="text-zinc-400 hover:text-premium-gold transition-colors">
+                                <button 
+                                    onClick={() => setIsPriceListOpen(true)}
+                                    className="text-zinc-400 hover:text-premium-gold transition-colors text-left"
+                                >
                                     {t.nav.services}
-                                </Link>
+                                </button>
                             </li>
                             <li>
                                 <Link href={`/${lang}#about`} className="text-zinc-400 hover:text-premium-gold transition-colors">
@@ -63,13 +69,8 @@ export function Footer() {
                             </li>
                             <li>
                                 <Link href={`/${lang}#locations`} className="text-zinc-400 hover:text-premium-gold transition-colors">
-                                    {t.nav.contact || "İletişim"}
+                                    {t.nav.locations}
                                 </Link>
-                            </li>
-                            <li>
-                                <a href="#" className="text-zinc-400 hover:text-premium-gold transition-colors cursor-not-allowed opacity-70">
-                                    {t.nav.prices || "Fiyat Listesi"}
-                                </a>
                             </li>
                         </ul>
                     </div>
@@ -127,6 +128,8 @@ export function Footer() {
                     </div>
                 </div>
             </div>
+            
+            <PriceList isOpen={isPriceListOpen} onClose={() => setIsPriceListOpen(false)} />
         </footer>
     );
 }

@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "@/components/layout/TranslationProvider";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 
 const galleryImages = [
@@ -19,6 +19,7 @@ const galleryImages = [
 export function Gallery() {
     const t = useTranslation();
     const scrollRef = useRef<HTMLDivElement>(null);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     // Triple the array to create an infinite loop illusion
     const infiniteImages = [...galleryImages, ...galleryImages, ...galleryImages];
@@ -83,7 +84,7 @@ export function Gallery() {
                     className="text-center"
                 >
                     {/* Compact Header */}
-                    <h2 className="text-3xl md:text-4xl font-sans font-black text-black mb-1 uppercase tracking-tighter">
+                    <h2 className="text-2xl md:text-3xl font-serif font-bold text-premium-gold mb-1 uppercase tracking-wider">
                         {t.gallery.title}
                     </h2>
                     <p className="text-zinc-500 font-medium text-sm">
@@ -125,23 +126,34 @@ export function Gallery() {
                     className="flex gap-4 overflow-x-auto scrollbar-hide pb-4"
                     style={{ scrollSnapType: "x mandatory" }}
                 >
-                    {infiniteImages.map((src, index) => (
-                        <motion.div
-                            key={index}
-                            className="flex-shrink-0 relative w-[220px] h-[320px] md:w-[260px] md:h-[380px] bg-zinc-100 rounded-sm overflow-hidden snap-center group select-none"
-                            whileHover={{ scale: 0.98 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            <Image
-                                src={src}
-                                alt={`Celebrity ${(index % galleryImages.length) + 1}`}
-                                fill
-                                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                                sizes="(max-width: 768px) 220px, 260px"
-                            />
-                            <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" />
-                        </motion.div>
-                    ))}
+                    {infiniteImages.map((src, index) => {
+                        // Priority logic: The list starts scrolled to the middle set (index 7-13).
+                        // So we prioritize loading those images.
+                        const isVisibleInitially = index >= galleryImages.length && index < galleryImages.length + 4;
+
+                        return (
+                            <motion.div
+                                key={index}
+                                className="flex-shrink-0 relative w-[220px] h-[320px] md:w-[260px] md:h-[380px] bg-zinc-100 rounded-sm overflow-hidden snap-center group select-none cursor-pointer"
+                                whileHover={{ scale: 0.98 }}
+                                transition={{ duration: 0.3 }}
+                                onClick={() => setSelectedImage(src)}
+                                layoutId={`gallery-image-${index}`} // For smooth layout transitions if needed, or just remove if causing issues with infinite scroll
+                            >
+                                <Image
+                                    src={src}
+                                    alt={`Celebrity ${(index % galleryImages.length) + 1}`}
+                                    fill
+                                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                    sizes="(max-width: 768px) 220px, 260px"
+                                    priority={isVisibleInitially}
+                                    placeholder="blur"
+                                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOcOnXqfwAG0gLZYD91mgAAAABJRU5ErkJggg==" // Dark gray placeholder
+                                />
+                                <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" />
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
 
@@ -151,6 +163,44 @@ export function Gallery() {
                     {t.gallery.view_all}
                 </button>
             </div>
+
+            {/* Lightbox Modal */}
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
+                        onClick={() => setSelectedImage(null)}
+                    >
+                        {/* Close Button */}
+                        <button
+                            className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors z-10"
+                            onClick={() => setSelectedImage(null)}
+                        >
+                            <X size={32} />
+                        </button>
+
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            className="relative w-full max-w-5xl aspect-[3/4] md:aspect-[16/9] rounded-lg overflow-hidden shadow-2xl"
+                            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image
+                        >
+                            <Image
+                                src={selectedImage}
+                                alt="Gallery Preview"
+                                fill
+                                className="object-contain"
+                                sizes="100vw"
+                                priority
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }
