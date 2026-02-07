@@ -94,6 +94,10 @@ export function Hero() {
                         </motion.button>
 
                         <motion.button
+                            onClick={() => {
+                                const gallery = document.getElementById('gallery');
+                                gallery?.scrollIntoView({ behavior: 'smooth' });
+                            }}
                             whileHover={{ scale: 1.05, borderColor: "#D4AF37", color: "#D4AF37" }}
                             whileTap={{ scale: 0.95 }}
                             className="w-full md:w-auto px-8 py-4 border border-white/30 text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 min-w-[220px]"
@@ -120,8 +124,13 @@ export function Hero() {
                 transition={{ duration: 2, repeat: Infinity, delay: 1 }}
                 className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 cursor-pointer hover:text-white transition-colors"
                 onClick={() => {
-                    const services = document.getElementById('services');
-                    services?.scrollIntoView({ behavior: 'smooth' });
+                    const nextSection = document.getElementById('services'); // Default to services, or could be the next section in DOM
+                    if (nextSection) {
+                        nextSection.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        // Fallback: scroll down by window height if no specific ID is targeted
+                        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+                    }
                 }}
             >
                 <ArrowDown className="w-8 h-8" />

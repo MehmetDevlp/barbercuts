@@ -64,7 +64,7 @@ export function Locations() {
                                         {t.locations?.address_label}
                                     </p>
                                     <a 
-                                        href="https://maps.google.com/?q=Siteler,+Uncalı+Cd.+Erenköy+Sitesi+No:11+B+Dükkan,+07100+Konyaaltı/Antalya" 
+                                        href="https://www.google.com/maps/place/Barbercuts/@36.8980757,30.6280236,17.25z/data=!4m6!3m5!1s0x14c3910309eb4317:0x3dad6279b2e3fc97!8m2!3d36.8977825!4d30.6301693!16s%2Fg%2F11v5wypf68?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D" 
                                         target="_blank" 
                                         rel="noopener noreferrer"
                                         className="text-zinc-700 leading-relaxed hover:text-premium-gold transition-colors block"
@@ -103,7 +103,7 @@ export function Locations() {
                         </div>
 
                         <a 
-                            href="https://maps.google.com/?q=Siteler,+Uncalı+Cd.+Erenköy+Sitesi+No:11+B+Dükkan,+07100+Konyaaltı/Antalya"
+                            href="https://www.google.com/maps/place/Barbercuts/@36.8980757,30.6280236,17.25z/data=!4m6!3m5!1s0x14c3910309eb4317:0x3dad6279b2e3fc97!8m2!3d36.8977825!4d30.6301693!16s%2Fg%2F11v5wypf68?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="mt-8 w-full py-4 bg-black text-white font-bold uppercase tracking-widest hover:bg-premium-gold hover:text-black transition-all text-center flex items-center justify-center gap-2 group"
@@ -121,7 +121,7 @@ export function Locations() {
                         className="h-[500px] lg:h-auto w-full bg-zinc-200 relative min-h-[500px]"
                     >
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000!2d30.635833!3d36.886389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c391d7e8e8e8e9%3A0x8e8e8e8e8e8e8e8e!2sBarbercuts%20Antalya!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3190.6892145786233!2d30.627594375649903!3d36.89778247221935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c3910309eb4317%3A0x3dad6279b2e3fc97!2sBarbercuts!5e0!3m2!1str!2str!4v1770421784029!5m2!1str!2str" 
                             width="100%" 
                             height="100%" 
                             style={{ border: 0 }} 
